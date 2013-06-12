@@ -1,7 +1,7 @@
-array = [1,2,3,4,5]
+array = [1,2,3]
 
 p "Non Lazy"
-p array.map do |element|
+a1 = array.map do |element|
   p "map"
   element * 2
 end.select do |element|
@@ -9,14 +9,18 @@ end.select do |element|
   (element/2)%2 == 1
 end
 
+p a1.to_a
+
 p "Lazy"
-p array.lazy.map do |element|
+a3 = array.lazy.map do |element|
   p "map"
   element * 2
 end.select do |element|
   p "select"
   (element/2)%2 == 1
 end
+
+p a3.to_a
 
 p "No Eval"
 array.lazy.map do |element|
